@@ -27,7 +27,6 @@ class App extends React.Component {
   }
 
   changeInput = newFormInput => {
-    console.log(newFormInput)
     this.setState({ formInput: newFormInput })
   }
 
@@ -37,8 +36,7 @@ class App extends React.Component {
       id: this.state.todos.length + 1,
       completed: false
     }
-    var newToDos = this.state.slice()
-    newToDos.unshift(todo)
+    var newToDos = [todo, ...this.state.todos]
     this.setState({ todos: newToDos })
   }
 
@@ -46,7 +44,7 @@ class App extends React.Component {
     return (
       <div className='App'>
         <Title />
-        <ToDoForm changeFormInput={this.changeInput} />
+        <ToDoForm addToDo={this.addToDo} changeFormInput={this.changeInput} />
         <ToDoList todos={this.state.todos} />
       </div>
     )
