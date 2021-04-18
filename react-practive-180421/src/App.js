@@ -40,11 +40,20 @@ class App extends React.Component {
     this.setState({ todos: newToDos })
   }
 
+  clearForm = () => {
+    this.setState({ formInput: '' })
+  }
+
   render () {
     return (
       <div className='App'>
         <Title />
-        <ToDoForm addToDo={this.addToDo} changeFormInput={this.changeInput} />
+        <ToDoForm
+          formInput={this.state.formInput}
+          clearForm={this.clearForm}
+          addToDo={this.addToDo}
+          changeFormInput={this.changeInput}
+        />
         <ToDoList todos={this.state.todos} />
       </div>
     )
