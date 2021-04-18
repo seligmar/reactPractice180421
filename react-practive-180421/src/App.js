@@ -2,7 +2,7 @@ import './App.css'
 import React from 'react'
 import Title from './components/Title'
 import ToDoList from './components/ToDoList'
-import Form from './components/Form'
+import ToDoForm from './components/ToDoForm'
 
 class App extends React.Component {
   state = {
@@ -26,11 +26,16 @@ class App extends React.Component {
     ]
   }
 
+  changeInput = newFormInput => {
+    console.log(newFormInput)
+    this.setState({ formInput: newFormInput })
+  }
+
   render () {
     return (
       <div className='App'>
         <Title />
-        <Form />
+        <ToDoForm changeFormInput={this.changeInput} />
         <ToDoList todos={this.state.todos} />
       </div>
     )
