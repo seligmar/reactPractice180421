@@ -1,7 +1,6 @@
 import React from 'react'
 
 const ToDoList = props => {
-  console.log(props)
   return (
     <ul>
       {props.todos.map(todo => (
