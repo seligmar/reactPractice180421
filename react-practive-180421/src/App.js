@@ -31,6 +31,17 @@ class App extends React.Component {
     this.setState({ formInput: newFormInput })
   }
 
+  addToDo = newToDo => {
+    const todo = {
+      task: newToDo,
+      id: this.state.todos.length + 1,
+      completed: false
+    }
+    var newToDos = this.state.slice()
+    newToDos.unshift(todo)
+    this.setState({ todos: newToDos })
+  }
+
   render () {
     return (
       <div className='App'>
