@@ -1,5 +1,8 @@
 import './App.css'
 import React from 'react'
+import Title from './components/Title'
+import ToDoList from './components/ToDoList'
+import Form from './components/Form'
 
 class App extends React.Component {
   state = {
@@ -8,16 +11,16 @@ class App extends React.Component {
       {
         task: 'sweep all the things',
         id: 1,
-        completed: false
+        completed: 'false'
       },
       {
         task: 'dishes',
-        id: 1,
+        id: 2,
         completed: false
       },
       {
         task: 'win at coding',
-        id: 1,
+        id: 3,
         completed: false
       }
     ]
@@ -26,14 +29,9 @@ class App extends React.Component {
   render () {
     return (
       <div className='App'>
-        <h1>To-Do App</h1>
-        <form>
-          <input placeholder='enter your to-do here' />
-          <button>Add To-Do</button>
-        </form>
-        <ul>
-          <li>{this.state.todos}</li>
-        </ul>
+        <Title />
+        <Form />
+        <ToDoList todos={this.state.todos} />
       </div>
     )
   }
